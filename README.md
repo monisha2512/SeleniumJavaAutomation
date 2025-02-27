@@ -37,7 +37,7 @@ The **Hybrid TestNG Framework** is a robust automation framework that combines *
 
 ### **Create Utility & Base Classes:**
 - **Utility Class:** Manages reusable functions(`generateEmailWithTimeStampMethod()` is moved).
-- **Base Class:** Handles browser setup (`@BeforeMethod`) and teardown (`@AfterMethod`).
+- **Base Class:** Handles browser setup (initializing browser and opening application URL).
 
 ---
 
@@ -49,10 +49,10 @@ The **Hybrid TestNG Framework** is a robust automation framework that combines *
 
 ### **Remove Hardcoding:**
 - Store browser, URL, and credentials in `config.properties`.
-- Read data using `Properties` class.
+- Read data using `testdata.properties` class.
 
 ### **Implement Data-Driven Testing:**
-- Store test data in Excel (`.xlsx`).
+- Store test data in Excel (`TutorialsNinjaTestData.xlsx`).
 - Use **Apache POI** to read data dynamically.
 
 ---
@@ -61,7 +61,7 @@ The **Hybrid TestNG Framework** is a robust automation framework that combines *
 
 ### **Implement Page Object Model (POM) & Page Factory:**
 - **POM:** Create separate **Page classes** for Login, Registration, etc.
-- **Page Factory:** Use `@FindBy` and `PageFactory.initElements(driver, this)`.
+- **Page Factory:** Use `@FindBy` for locating elements and `PageFactory.initElements(driver, this)` for initializing elements automatically.
 
 ### **Reduce Redundant Code:**
 - Move browser setup, URL initialization, and common functions to **Base Class**.
@@ -74,14 +74,13 @@ The **Hybrid TestNG Framework** is a robust automation framework that combines *
 ## 5. Extent Reports & Logging
 
 ### **Generate Extent Reports:**
-1. Configure Extent Reports in the Base Class.
-2. Capture logs using **log4j** or TestNG logging.
-3. Embed screenshots for failed test cases:
+1. Configure Extent Reports in the ExtentReport Class in Utils package.
+2. Embed screenshots for failed test cases:
    ```java
    String screenshotPath = "path/to/screenshot.png";
    test.addScreenCaptureFromPath(screenshotPath);
    ```
-4. Auto-generate reports after test execution.
+3. Auto-launching extent report after test execution.
 
 ---
 
@@ -91,9 +90,9 @@ The **Hybrid TestNG Framework** is a robust automation framework that combines *
 - Download and install **Jenkins**.
 - Start Jenkins using:
   ```sh
-  java -jar jenkins.war --httpPort=9092
+  java -jar jenkins.war 
   ```
-- Open Jenkins in a browser: `http://localhost:9092/`.
+- Open Jenkins in a browser: `http://localhost:8080/`.
 
 ### **Configure Jenkins for Test Execution:**
 1. **Install Plugins:** TestNG, Maven, Git.
