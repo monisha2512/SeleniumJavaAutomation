@@ -16,7 +16,7 @@ The **Hybrid TestNG Framework** is a robust automation framework that combines *
 - Remove JUnit dependencies (if present).
 
 ### **Install TestNG Plugin in Eclipse**
-- Go to **Eclipse Marketplace** and install TestNG.
+- Go to **Maven Repository** and add TestNG Library to pom.xml file.
 
 ---
 
