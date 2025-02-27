@@ -24,16 +24,19 @@ The **Hybrid TestNG Framework** is a robust automation framework that combines *
 
 ### **Login Test Cases:**
 - Login with **valid credentials**
-- Login with **invalid credentials** (wrong email/password)
+- Login with **invalid credentials**
+- Login with **invalid email and valid password**
+- Login with **valid email and invalid password**
 - Login with **empty fields**
 
 ### **Register Test Cases:**
-- Register **with valid details**
-- Register **without mandatory fields**
+- Register **with mandatory fields**
+- Register **with all fields**
 - Register with **duplicate email**
+- Register with **empty fields**
 
 ### **Create Utility & Base Classes:**
-- **Utility Class:** Manages reusable functions.
+- **Utility Class:** Manages reusable functions(`generateEmailWithTimeStampMethod()` is moved).
 - **Base Class:** Handles browser setup (`@BeforeMethod`) and teardown (`@AfterMethod`).
 
 ---
