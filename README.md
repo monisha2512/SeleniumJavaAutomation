@@ -4,7 +4,42 @@
 The **Hybrid TestNG Framework** is a robust automation framework that combines **Data-Driven Testing**, **Page Object Model (POM)**, **Extent Reports**, and **Jenkins Integration** to enable efficient test execution.
 
 ---
-
+## Project Structure
+TutorialNinjaProj/
+├── src/main/java #main source file
+    ├── com.tutorialsninja.qa.base #Base file
+        ├── Base.java #base java code
+    ├── com.tutorialsninja.qa.config #properties file
+        ├── config.properties #properties java code
+    ├── com.tutorialsninja.qa.listeners #listeners file
+        ├── MyListeners.java #listeners java code
+    ├── com.tutorialsninja.qa.pages
+        ├── AccountPage.java
+        ├── AcccountSuccessPage.java
+        ├── HomePage.java
+        ├── LoginPage.java
+        ├── RegisterPage.java
+        ├── SearchPage.java
+    ├── com.tutorialsninja.qa.testdata
+        ├── testdata..properties
+        ├── TutorialsNinjaTestData.xlsx
+    ├── com.tutorialsninja.qa.utils
+        ├── ExtentReporter.java
+        ├── Utilities.java
+├── src/test/java #test source file
+    ├── com.tutorialsninja.qa.testcases #testcases file
+        ├── LoginTest.java #login java code
+        ├── RegisterTest.java #register java code
+        ├── SearchTest.java #search java code
+├── src/test/resources #test resource file
+    ├── testing.xml 
+├── Screenshots
+    ├── verifySearchWithInvalidProduct.png
+├── test-output
+    ├── ExtentReports
+        ├── extentReport.html
+├── pom.xml
+├── README.md
 ## 1. Setting Up the Framework
 
 ### **Create a Maven Project**
@@ -87,15 +122,16 @@ The **Hybrid TestNG Framework** is a robust automation framework that combines *
 ## 6. Jenkins Integration
 
 ### **Install & Run Jenkins:**
-- Download and install **Jenkins**.
-- Start Jenkins using:
+- Download Jenkin.war file.
+- Run Jenkins using:
   ```sh
   java -jar jenkins.war 
   ```
 - Open Jenkins in a browser: `http://localhost:8080/`.
+- To run Jenkins at different port:  `java -jar jenkins.war --httpPort=9192`.
 
 ### **Configure Jenkins for Test Execution:**
-1. **Install Plugins:** TestNG, Maven, Git.
+1. **Install Plugins:** TestNG.
 2. **Create a Job:**
    - Choose **Freestyle Project**.
    - Link to the GitHub repository.
