@@ -6,40 +6,41 @@ The **Hybrid TestNG Framework** is a robust automation framework that combines *
 ---
 ## Project Structure
 TutorialNinjaProj/
-├── src/main/java #main source file
-    ├── com.tutorialsninja.qa.base #Base file
-        ├── Base.java #base java code
-    ├── com.tutorialsninja.qa.config #properties file
-        ├── config.properties #properties java code
-    ├── com.tutorialsninja.qa.listeners #listeners file
-        ├── MyListeners.java #listeners java code
-    ├── com.tutorialsninja.qa.pages
-        ├── AccountPage.java
-        ├── AcccountSuccessPage.java
-        ├── HomePage.java
-        ├── LoginPage.java
-        ├── RegisterPage.java
-        ├── SearchPage.java
-    ├── com.tutorialsninja.qa.testdata
-        ├── testdata..properties
-        ├── TutorialsNinjaTestData.xlsx
-    ├── com.tutorialsninja.qa.utils
-        ├── ExtentReporter.java
-        ├── Utilities.java
-├── src/test/java #test source file
-    ├── com.tutorialsninja.qa.testcases #testcases file
-        ├── LoginTest.java #login java code
-        ├── RegisterTest.java #register java code
-        ├── SearchTest.java #search java code
-├── src/test/resources #test resource file
-    ├── testing.xml 
-├── Screenshots
-    ├── verifySearchWithInvalidProduct.png
-├── test-output
-    ├── ExtentReports
-        ├── extentReport.html
-├── pom.xml
-├── README.md
+├── src/main/java # Main source files
+│   ├── com.tutorialsninja.qa.base
+│   │   ├── Base.java # Base class for test setup
+│   ├── com.tutorialsninja.qa.config
+│   │   ├── config.properties # Configuration properties file
+│   ├── com.tutorialsninja.qa.listeners
+│   │   ├── MyListeners.java # TestNG Listeners implementation
+│   ├── com.tutorialsninja.qa.pages
+│   │   ├── AccountPage.java # Page Object for Account
+│   │   ├── AccountSuccessPage.java # Page Object for Account Success
+│   │   ├── HomePage.java # Page Object for Home Page
+│   │   ├── LoginPage.java # Page Object for Login
+│   │   ├── RegisterPage.java # Page Object for Register
+│   │   ├── SearchPage.java # Page Object for Search
+│   ├── com.tutorialsninja.qa.testdata
+│   │   ├── testdata.properties # Test data properties file
+│   │   ├── TutorialsNinjaTestData.xlsx # Excel test data file
+│   ├── com.tutorialsninja.qa.utils
+│   │   ├── ExtentReporter.java # Extent Report integration
+│   │   ├── Utilities.java # Utility methods
+├── src/test/java # Test source files
+│   ├── com.tutorialsninja.qa.testcases
+│   │   ├── LoginTest.java # Login test cases
+│   │   ├── RegisterTest.java # Register test cases
+│   │   ├── SearchTest.java # Search test cases
+├── src/test/resources # Test resource files
+│   ├── testing.xml # TestNG test suite configuration
+│   ├── Screenshots # Screenshots folder
+│   │   ├── verifySearchWithInvalidProduct.png # Example screenshot
+├── test-output # Test output folder
+│   ├── ExtentReports # Extent Reports output
+│   │   ├── extentReport.html # Test execution report
+├── pom.xml # Maven Project Object Model
+├── README.md # Project documentation
+
 ## 1. Setting Up the Framework
 
 ### **Create a Maven Project**
@@ -134,7 +135,11 @@ TutorialNinjaProj/
 1. **Install Plugins:** TestNG.
 2. **Create a Job:**
    - Choose **Freestyle Project**.
-   - Link to the GitHub repository.
+   - Enter Description
+   - Build Steps
+       - Invoke top-level Maven targets
+         - Maven Version: MAVEN_HOME
+         - Goals: path of the project
 3. **Run Tests via Jenkins:**
    - Configure **Maven Goals:**
      ```sh
@@ -148,11 +153,14 @@ TutorialNinjaProj/
 
 ### **Set Up Git & GitHub:**
 1. **Create a GitHub Repository.**
-2. **Clone the Repository Locally:**
+   - Open Git Repositories
+   - Team > Share Project
+       - Create New Repository 
+3. **Clone the Repository Locally:**
    ```sh
    git clone https://github.com/username/repo.git
    ```
-3. **Add & Commit Code:**
+4. **Add & Commit Code:**
    ```sh
    git add .  
    git commit -m "Initial Commit"  
