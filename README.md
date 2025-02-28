@@ -140,49 +140,76 @@ TutorialNinjaProj/
        - Invoke top-level Maven targets
          - Maven Version: MAVEN_HOME
          - Goals: path of the project
+       - Post-build Actions
+         -  Publish TestNG Results
 3. **Run Tests via Jenkins:**
-   - Configure **Maven Goals:**
-     ```sh
-     clean test
-     ```
-   - Schedule periodic test runs using **cron jobs**.
-
+   - Select Triggers
+     - Build periodically
+   - Save and Apply
+   - Select Build Now to run  
 ---
 
 ## 7. Git & GitHub Workflow
 
-### **Set Up Git & GitHub:**
+### **Set Up Git & GitHub:(Lead)**
 1. **Create a GitHub Repository.**
    - Open Git Repositories
    - Team > Share Project
-       - Create New Repository 
-3. **Clone the Repository Locally:**
-   ```sh
-   git clone https://github.com/username/repo.git
-   ```
-4. **Add & Commit Code:**
-   ```sh
-   git add .  
-   git commit -m "Initial Commit"  
-   git push origin main  
-   ```
+       - Create New Repository
+   - Team > Add to Index
+       - This adds the project to Staging area
+   - Team > Commit
+       - This adds the project to Local Repo
+  #This creates the remote Repo at GitHub - Copy Rep git URL
+   - Team > Remote > Push
+      - Give the above copied URL
+      - Provide Username and Password of GitHub
+      - Next > SelectMasterBranch > AddSpec
+      - Finish
+          - Username: user GitHub email id
+          - Password:
+              -  `https://github.com/settings/tokens`
+              -  Generated token code in place of password
+   -  Invite the Team members as collaborator for that Repo
+3. **Clone the Repository Locally:(Testers under Lead)**
+   - Testershould accept the invitation sent by the Lead to become the collaborator for that Repo
+   -  Search for Git Repositories in Eclipse IDE
+   -  Clone a Git Repository using Import the Repository to the local workspace
+   -  Update changes in existing files
+   -  Team > Add to Index
+   -  Git Repo > Branches > Switch to new branch
+   -  Team > Commit #Commit will go for new branch
+   -  Select new branch > Push Branch
+       - Username: tester GitHub email id
+       - Password:
+              -  `https://github.com/settings/tokens`
+              -  Generated token code in place of password
+   - Check whether the code pushed to new Branch
+   - Create Pull Request
 
-### **Branching & Merging:**
-1. **Create a New Branch:**
-   ```sh
-   git checkout -b feature-branch  
-   ```
-2. **Switch Between Branches:**
-   ```sh
-   git checkout main  
-   ```
-3. **Merge Changes:**
-   ```sh
-   git merge feature-branch  
-   ```
+4. **Pull the Code:**
+   - Go to Pull Requests tab
+   - Merge the changes to the Main branch
 
 ### **GitHub & Jenkins Integration:**
-- Connect Jenkins with GitHub to trigger automated test runs on **each commit**.
+1. **Install Plugins:** Maven.
+2. **Create a Job:**
+   - Choose **Maven Project**.
+   - Enter Description
+   - Source Code Management
+       - Select Git
+       - Add Repository URL
+   - Build Steps
+       - Invoke top-level Maven targets
+         - Maven Version: MAVEN_HOME
+         - Goals: path of the project
+   - Triggers
+     - Select Build periodically
+   - Post-build Actions
+     -  Publish TestNG Results
+   - Save and Apply  
+3. **Run Tests via Jenkins:**
+   - Select Build Now to run 
 
 ---
 
